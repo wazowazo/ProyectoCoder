@@ -1,12 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cursos</title>
-</head>
-<body style="background-color: blue;">
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+    {% if miFormulario.errors %}
+
+    <p style="color: red;"> Estan mal los datos, revisar </p>
+
+    {% endif %}
+
+    <h1>Cursos - Agregar Curso</h1>
+
+    {% if miFormulario.errors %}
+    <p style="color: red;"> ESTAN MAL LOS DATOS</p>
+    {% endif %}
     
-</body>
-</html>
+    <form action="" method="POST"> {% csrf_token %}
+        
+        <table>
+
+            {{ miFormulario.as_table }}
+
+        </table>
+
+        <input type="submit" value="Enviar">
+    </form>
+
+    <a href="curso/list">Ver lista de Cursos</a>
+
+{% endblock %}
