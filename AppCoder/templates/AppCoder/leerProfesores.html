@@ -14,6 +14,9 @@
         <li>{{p}}</li>  
         <button>
             <a href="{% url 'EliminarProfesor' p.nombre %}"> Eliminar</a>
+        </button>
+        
+        <button>
             <a href="{% url 'EditarProfesor' p.nombre %}"> Editar</a>
         </button>
 
